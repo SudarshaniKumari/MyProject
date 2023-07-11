@@ -10,11 +10,11 @@ if (!isset($_SESSION["user"])) {
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Administrator	</title>
+        <title>Administrator HOTEL WILOW LAKE	</title>
         <!-- Bootstrap Styles-->
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
         <!-- FontAwesome Styles-->
-        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/a59b010e18.js" crossorigin="anonymous"></script>
         <!-- Morris Chart Styles-->
         <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
         <!-- Custom Styles-->
@@ -76,7 +76,7 @@ if (!isset($_SESSION["user"])) {
                             <a  href="profit.php"><i class="fa fa-qrcode"></i> Profit</a>
                         </li>
                         <li>
-                            <a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a href="logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </li>
 
 
@@ -146,7 +146,7 @@ if (!isset($_SESSION["user"])) {
                                                                             <th>#</th>
                                                                             <th>Name</th>
                                                                             <th>Email</th>
-                                                                            <th>Gender</th>
+
                                                                             <th>Room</th>
                                                                             <th>Bedding</th>
                                                                             <th>Meal</th>
@@ -169,7 +169,7 @@ if (!isset($_SESSION["user"])) {
 												<th>" . $trow['id'] . "</th>
 												<th>" . $trow['FName'] . " " . $trow['LName'] . "</th>
 												<th>" . $trow['Email'] . "</th>
-												<th>" . $trow['gender'] . "</th>
+												
 												<th>" . $trow['TRoom'] . "</th>
 												<th>" . $trow['Bed'] . "</th>
 												<th>" . $trow['Meal'] . "</th>

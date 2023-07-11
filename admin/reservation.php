@@ -6,11 +6,11 @@ include('db.php')
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>RESERVATION SUNRISE HOTEL</title>
+        <title>RESERVATION HOTEL WILOW LAKE</title>
         <!-- Bootstrap Styles-->
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
         <!-- FontAwesome Styles-->
-        <link href="assets/css/font-awesome.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/a59b010e18.js" crossorigin="anonymous"></script>
         <!-- Custom Styles-->
         <link href="assets/css/custom-styles.css" rel="stylesheet" />
         <!-- Google Fonts-->
@@ -80,16 +80,7 @@ include('db.php')
                                             <input name="email" type="email" class="form-control" required>
 
                                         </div>
-                                        <div class="form-group">
-                                            <label>Gender*</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="gender"  value="Female" checked="">Male
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="gender"  value="Female">Female 
-                                            </label>
-
-                                        </div>
+                                       
                                        
                                         
                                         <div class="form-group">
@@ -115,10 +106,10 @@ include('db.php')
                                             <label>Type Of Room *</label>
                                             <select name="troom"  class="form-control" required>
                                                 <option value selected ></option>
-                                                <option value="Superior Room">SUPERIOR ROOM</option>
-                                                <option value="Deluxe Room">DELUXE ROOM</option>
-                                                <option value="Guest House">GUEST HOUSE</option>
                                                 <option value="Single Room">SINGLE ROOM</option>
+                                                <option value="Deluxe Room">DELUXE ROOM</option>
+                                                <option value="Double Room">Double ROOM</option>
+                                                
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -193,7 +184,7 @@ include('db.php')
                                                     echo "<script type='text/javascript'> alert('User Already in Exists')</script>";
                                                 } else {
                                                     $new = "Not Conform";
-                                                    $newUser = "INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `gender`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[nation]','$_POST[country]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
+                                                    $newUser = "INSERT INTO `roombook`(`Title`, `FName`, `LName`, `Email`, `Phone`, `TRoom`, `Bed`, `NRoom`, `Meal`, `cin`, `cout`,`stat`,`nodays`) VALUES ('$_POST[title]','$_POST[fname]','$_POST[lname]','$_POST[email]','$_POST[phone]','$_POST[troom]','$_POST[bed]','$_POST[nroom]','$_POST[meal]','$_POST[cin]','$_POST[cout]','$new',datediff('$_POST[cout]','$_POST[cin]'))";
                                                     if (mysqli_query($con, $newUser)) {
                                                         echo "<script type='text/javascript'> alert('Your Booking application has been sent')</script>";
                                                     } else {

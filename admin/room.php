@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])) {
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>SUNRISE HOTEL</title>
+        <title>HOTEL WILOW LAKE</title>
         <!-- Bootstrap Styles-->
         <link href="assets/css/bootstrap.css" rel="stylesheet" />
         <!-- FontAwesome Styles-->
@@ -97,130 +97,115 @@ if (!isset($_SESSION["user"])) {
                                 </div>
                                 <div class="panel-body">
                                     <form name="form" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label>Room No *</label>
-                                            <input type="text" name="rno"  class="form-control"/>
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Type Of Room *</label>
-                                            <select name="troom"  class="form-control" required>
-                                                <option value selected ></option>
-                                                <option value="Superior Room">SUPERIOR ROOM</option>
-                                                <option value="Deluxe Room">DELUXE ROOM</option>
-                                                <option value="Guest House">GUEST HOUSE</option>
-                                                <option value="Single Room">SINGLE ROOM</option>
-                                            </select>
-                                        </div>
+                                        <table class="table table-bordered">
 
-                                        <div class="form-group">
-                                            <label>Bedding Type</label>
-                                            <select name="bed" class="form-control" required>
-                                                <option value selected ></option>
-                                                <option value="Single">Single</option>
-                                                <option value="Double">Double</option>
-                                                <option value="Triple">Triple</option>
-                                                <option value="Quad">Quad</option>
-                                                <option value="Triple">None</option>
+                                            <tr>	
+                                                <th>Room No</th>
+                                                <td><input type="text" name="rno"  class="form-control"/>
+                                                </td>
+                                            </tr>
 
-                                            </select>
-                                            
+                                            <tr>	
+                                                <th>Room Type</th>
+                                                <td><input type="text" name="type"  class="form-control"/>
+                                                </td>
+                                            </tr>
 
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Price *</label>
-                                            <input type="text" name="price"  class="form-control"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Image *</label>
-                                            <input type="file" name="price"  class="form-control"/>
-                                        </div>
-                                        
-                                        
-                                        <input type="submit" name="add" value="Add New" class="btn btn-primary"> 
+                                            <tr>	
+                                                <th>Price</th>
+                                                <td><input type="text" name="price"  class="form-control"/>
+                                                </td>
+                                            </tr>
+
+
+
+                                            <tr>	
+                                                <th>Images</th>
+                                                <td><input type="file" name="img"  class="form-control"/>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2">
+                                                    <input type="submit" class="btn btn-primary" value="Add Room Details" name="add"/>
+                                                </td>
+                                            </tr>
+                                        </table> 
                                     </form>
                                     <?php
-                                    include('db.php');
-                                    if (isset($_POST['add'])) {
-                                        $room = $_POST['troom'];
-                                        $bed = $_POST['bed'];
-                                        $place = 'Free';
-
-                                        $check = "SELECT * FROM room WHERE type = '$room' AND bedding = '$bed'";
-                                        $rs = mysqli_query($con, $check);
-                                        $data = mysqli_fetch_array($rs, MYSQLI_NUM);
-                                        if ($data[0] > 1) {
-                                            echo "<script type='text/javascript'> alert('Room Already in Exists')</script>";
+                                    if (isset($add)) {
+                                        $sql = mysqli_query($con, "select * from rooms where room_no='$rno'");
+                                        if (mysqli_num_rows($sql)) {
+                                            echo "This room is already added";
                                         } else {
-
-
-                                            $sql = "INSERT INTO `room`( `type`, `bedding`,`place`) VALUES ('$room','$bed','$place')";
-                                            if (mysqli_query($con, $sql)) {
-                                                echo '<script>alert("New Room Added") </script>';
-                                            } else {
-                                                echo '<script>alert("Sorry ! Check The System") </script>';
-                                            }
+                                            $img = "../upload/" . $_FILES['img']['name'];
+                                            mysqli_query($con, "insert into rooms values('','$rno','$type','$price','$img')");
+                                            move_uploaded_file($_FILES['img']['tmp_name'], $img);
+                                            echo "Rooms added successfully";
                                         }
                                     }
                                     ?>
+
                                 </div>
 
                             </div>
                         </div>
 
 
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">
+                        <div class = "row">
+                            <div class = "col-md-6 col-sm-6">
+                                <div class = "panel panel-primary">
+                                    <div class = "panel-heading">
                                         ROOMS INFORMATION
                                     </div>
-                                    <div class="panel-body">
-                                        <!-- Advanced Tables -->
-                                        <div class="panel panel-default">
-                                            <?php
-                                            $sql = "select * from room limit 0,10";
-                                            $re = mysqli_query($con, $sql)
-                                            ?>
-                                            <div class="panel-body">
-                                                <div class="table-responsive">
-                                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <div class = "panel-body">
+                                        <!--Advanced Tables -->
+                                        <div class = "panel panel-default">
+
+                                            <div class = "panel-body">
+                                                <div class = "table-responsive">
+                                                    <table class = "table table-striped table-bordered table-hover" id = "dataTables-example">
                                                         <thead>
-                                                            <tr>
-                                                                <th>Room ID</th>
-                                                                <th>Room Type</th>
-                                                                <th>Bedding</th>
+                                                            <tr style="height:40">
+                                                                <th>Sr No</th>
+                                                                <th>Image</th>
+                                                                <th>Room No</th>
+                                                                <th>Type</th>
+                                                                <th>Price</th>
+
 
                                                             </tr>
-                                                        </thead>
-                                                        <tbody>
-
                                                             <?php
-                                                            while ($row = mysqli_fetch_array($re)) {
-                                                                $id = $row['id'];
-                                                                if ($id % 2 == 0) {
-                                                                    echo "<tr class=odd gradeX>
-													<td>" . $row['id'] . "</td>
-													<td>" . $row['type'] . "</td>
-												   <th>" . $row['bedding'] . "</th>
-												</tr>";
-                                                                } else {
-                                                                    echo"<tr class=even gradeC>
-													<td>" . $row['id'] . "</td>
-													<td>" . $row['type'] . "</td>
-												   <th>" . $row['bedding'] . "</th>
-												</tr>";
+                                                            $i = 1;
+                                                            $sql = mysqli_query($con, "select * from rooms");
+                                                            while ($res = mysqli_fetch_assoc($sql)) {
+                                                                $id = $res['room_id'];
+                                                                $type = $res['type'];
+
+                                                                $img = $res['image'];
+                                                                $path = "../upload/$img";
+                                                                ?>
+                                                                <tr>
+                                                                    <td><?php
+                                                                        echo $i;
+                                                                        $i++;
+                                                                        ?></td>
+                                                                    <td><img src="<?php echo $path; ?>" width="90" height="60"/></td>
+                                                                    <td><?php echo $res['room_no']; ?></td>
+                                                                    <td><?php echo $res['type']; ?></td>
+                                                                    <td><?php echo $res['price']; ?></td>
+
+                                                                    <?php
                                                                 }
-                                                            }
-                                                            ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                                                ?>
 
-                                            </div>
-                                        </div>
-                                        <!--End Advanced Tables -->
+                                                                </tbody>
+                                                                </table>
+                                                                </div>
 
-
+                                                                </div>
+                                                                </div>
+                                                                <!--End Advanced Tables -->
 
 
 
@@ -228,32 +213,34 @@ if (!isset($_SESSION["user"])) {
 
 
 
-                                    </div>
-
-                                </div>
-                            </div>
 
 
-                        </div>
+                                                                </div>
+
+                                                                </div>
+                                                                </div>
+
+
+                                                                </div>
 
 
 
-                    </div>
-                    <!-- /. PAGE INNER  -->
-                </div>
-                <!-- /. PAGE WRAPPER  -->
-            </div>
-            <!-- /. WRAPPER  -->
-            <!-- JS Scripts-->
-            <!-- jQuery Js -->
-            <script src="assets/js/jquery-1.10.2.js"></script>
-            <!-- Bootstrap Js -->
-            <script src="assets/js/bootstrap.min.js"></script>
-            <!-- Metis Menu Js -->
-            <script src="assets/js/jquery.metisMenu.js"></script>
-            <!-- Custom Js -->
-            <script src="assets/js/custom-scripts.js"></script>
+                                                                </div>
+                                                                <!-- /. PAGE INNER  -->
+                                                                </div>
+                                                                <!-- /. PAGE WRAPPER  -->
+                                                                </div>
+                                                                <!-- /. WRAPPER  -->
+                                                                <!-- JS Scripts-->
+                                                                <!-- jQuery Js -->
+                                                                <script src="assets/js/jquery-1.10.2.js"></script>
+                                                                <!-- Bootstrap Js -->
+                                                                <script src="assets/js/bootstrap.min.js"></script>
+                                                                <!-- Metis Menu Js -->
+                                                                <script src="assets/js/jquery.metisMenu.js"></script>
+                                                                <!-- Custom Js -->
+                                                                <script src="assets/js/custom-scripts.js"></script>
 
 
-    </body>
-</html>
+                                                                </body>
+                                                                </html>

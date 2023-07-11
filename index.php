@@ -25,6 +25,8 @@ include('db.php');
         <link href="//fonts.googleapis.com/css?family=Federo" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
         <!--//fonts-->
+         <!-- FontAwesome Styles-->
+        <script src="https://kit.fontawesome.com/a59b010e18.js" crossorigin="anonymous"></script>
         <style>
                .logo {
                 width: 15vh;
@@ -276,7 +278,7 @@ include('db.php');
             </div>
             <div class="thim-click-to-bottom">
                 <a href="#about" class="scroll">
-                    <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
+                    <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
                 </a>
             </div>
         </div>	
@@ -504,7 +506,7 @@ include('db.php');
                         <div class="price-block agile">
                             <div class="price-gd-top">
                                 <img src="images/Rooms/simpleroom.jpeg" alt=" " class="img-responsive" />
-                                <h4> Simple Room</h4>
+                                <h4> Single Room</h4>
                             </div>
                             <div class="price-gd-bottom">
                                 <div class="price-list">
@@ -524,7 +526,7 @@ include('db.php');
                         <div class="price-block agile">
                             <div class="price-gd-top">
                                 <img src="images/Rooms/deluxroom.jpeg" alt=" " class="img-responsive" />
-                                <h4>Deluxroom Room</h4>
+                                <h4>Delux Room</h4>
                             </div>
                             <div class="price-gd-bottom">
                                 <div class="price-list">
@@ -563,13 +565,13 @@ include('db.php');
                      <div class="col-md-3 price-grid ">
                         <div class="price-block agile">
                             <div class="price-gd-top">
-                                <img src="images/Rooms/simpleroom.jpeg" alt=" " class="img-responsive" />
-                                <h4> Simple Room</h4>
+                                <img src="images/Rooms/room2.jpg" alt=" " class="img-responsive" />
+                                <h4> Luxery Room</h4>
                             </div>
                             <div class="price-gd-bottom">
                                 <div class="price-list">
                                     <ul>
-                                       <h3 class="align-top">Rs.15000</h3> 
+                                       <h3 class="align-top">Rs.30000</h3> 
                                         per night,1person
                                     </ul>
                                 </div>
@@ -763,14 +765,7 @@ include('db.php');
         <!-- smooth scrolling -->
         <script type="text/javascript">
             $(document).ready(function () {
-                /*
-                 var defaults = {
-                 containerID: 'toTop', // fading element id
-                 containerHoverID: 'toTopHover', // fading element hover id
-                 scrollSpeed: 1200,
-                 easingType: 'linear' 
-                 };
-                 */
+                
                 $().UItoTop({easingType: 'easeOutQuart'});
             });
         </script>

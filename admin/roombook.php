@@ -22,7 +22,7 @@ if (!isset($_GET["rid"])) {
         $fname = $row['FName'];
         $lname = $row['LName'];
         $email = $row['Email'];
-        $gen = $row['gender'];
+       
         $Phone = $row['Phone'];
         $troom = $row['TRoom'];
         $nroom = $row['NRoom'];
@@ -162,11 +162,7 @@ if (!isset($_GET["rid"])) {
                                                 <th><?php echo $email; ?> </th>
 
                                             </tr>
-                                            <tr>
-                                                <th>Gender</th>
-                                                <th><?php echo $gen; ?></th>
-
-                                            </tr>
+                                           
 
                                             <tr>
                                                 <th>Phone No </th>
@@ -282,14 +278,14 @@ if (!isset($_GET["rid"])) {
                             $cr = $cr + 1;
                             $cs = $crow['troom'];
 
-                            if ($cs == "Superior Room") {
+                            if ($cs == "Single Room") {
                                 $csc = $csc + 1;
                             }
 
-                            if ($cs == "Guest House") {
+                            if ($cs == "Double Room") {
                                 $cgh = $cgh + 1;
                             }
-                            if ($cs == "Single Room") {
+                            if ($cs == "Luxery Room") {
                                 $csr = $csr + 1;
                             }
                             if ($cs == "Deluxe Room") {
@@ -431,11 +427,11 @@ if (isset($_POST['co'])) {
             //echo "<script type='text/javascript'> alert('Guest Room booking is conform')</script>";
             //echo "<script type='text/javascript'> window.location='home.php'</script>";
             $type_of_room = 0;
-            if ($troom == "Superior Room") {
+            if ($troom == "Simple Room") {
                 $type_of_room = 320;
             } else if ($troom == "Deluxe Room") {
                 $type_of_room = 220;
-            } else if ($troom == "Guest House") {
+            } else if ($troom == "Double Room") {
                 $type_of_room = 180;
             } else if ($troom == "Single Room") {
                 $type_of_room = 150;

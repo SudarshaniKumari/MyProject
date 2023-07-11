@@ -256,10 +256,10 @@ tr:hover .cut { opacity: 1; }
 			<h1>Invoice</h1>
 			<address >
 				<p> HOTEL WILOW LAKE</p>
-				<p>,<br>Battialoa,<br>Sri Lanka.</p>
-				<p>(+94) 65 222 44 55</p>
+				<p>,208 S Lake Rd,Mawathagama,Kurunegala.<br>,<br>Sri Lanka.</p>
+				<p>: 077 759 6666</p>
 			</address>
-			<span><img alt="" src="assets/img/sun.png"></span>
+                        
 		</header>
 		<article>
 			<h1>Recipient</h1>
@@ -330,7 +330,7 @@ tr:hover .cut { opacity: 1; }
 		<aside>
 			<h1><span >Contact us</span></h1>
 			<div >
-				<p align="center">Email :- info@sunrise.com || Web :- www.sunrise.com || Phone :- +94 65 222 44 55 </p>
+				<p align="center">Email :- hotelwilow@gmail.com|| Web :- www.wilowlake.com  </p>
 			</div>
 		</aside>
 	</body>
